@@ -206,11 +206,14 @@ void FormatJsonData(VanguardSettings& settings, std::ostringstream& json_string)
   // iterate through all settings
   for (int i = 0; i < settings.array.size(); i++)
   {
+    std::string value(settings.to_string(settings.array[i].second));
+
     json_string << "  \"" << settings.array[i].first
-                << "\": " << settings.to_string(settings.array[i].second);
+                << "\": " << value;
 
     // if the value is a whole number float, add ".0" so the parser understands
-    if (std::holds_alternative<float>(settings.array[i].second))
+    if (std::holds_alternative<float>(settings.array[i].second) &&
+        value.length() == 1)
     {
       json_string << ".0";
     }
