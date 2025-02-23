@@ -272,11 +272,14 @@ void MenuBar::AddToolsMenu()
 
   tools_menu->addSeparator();
 
+  // RTC_Hijack: nuke retro achievements
+  /*
 #ifdef USE_RETRO_ACHIEVEMENTS
   tools_menu->addAction(tr("Achievements"), this, [this] { emit ShowAchievementsWindow(); });
 
   tools_menu->addSeparator();
 #endif  // USE_RETRO_ACHIEVEMENTS
+  */
 
   QMenu* gc_ipl = tools_menu->addMenu(tr("Load GameCube Main Menu"));
 

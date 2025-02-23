@@ -159,7 +159,9 @@ void AchievementSettingsWidget::OnControllerInterfaceConfigure()
 
 void AchievementSettingsWidget::LoadSettings()
 {
-  bool enabled = Config::Get(Config::RA_ENABLED);
+  // RTC_Hijack: nuke retro achievements
+  //bool enabled = Config::Get(Config::RA_ENABLED);
+  bool enabled = false;
   bool hardcore_enabled = Config::Get(Config::RA_HARDCORE_ENABLED);
   bool logged_out = Config::Get(Config::RA_API_TOKEN).empty();
   std::string username = Config::Get(Config::RA_USERNAME);
